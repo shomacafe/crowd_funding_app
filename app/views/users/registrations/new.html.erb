@@ -1,0 +1,23 @@
+<div class="container">
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <h3 class="postsTitle">新しいアカウントを作成</h3>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div class="profileBox">
+      <p class="projectNewTitle"><%= f.label :ユーザー名 %><span class="must">必須</span></p>
+      <p><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "textForm" %></p>
+      <p class="projectNewTitle"><%= f.label :メールアドレス %><span class="must">必須</span></p>
+      <p><%= f.email_field :email, autocomplete: "email", class: "textForm" %></p>
+      <div class="projectNewTitle">
+        <%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上)</em><span class="must">必須</span>
+        <% end %>
+      </div>
+      <p><%= f.password_field :password, autocomplete: "new-password", class: "textForm" %></p>
+      <p class="projectNewTitle"><%= f.label :パスワード確認 %><span class="must">必須</span></p>
+      <p><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "textForm" %></p>
+      <div class="profileEditSubmit"><%= f.submit "新しいアカウントを作成", class: "returnSubmitButton" %></div>
+      <div><%= link_to "すでにアカウントをお持ちの方はログイン", :new_user_session %></div>
+    </div>
+  <% end %>
+</div>
