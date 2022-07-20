@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user.update(user_params)
-    @user.update(profileimage: nil) if params[:image_delete].present?
+    @user.update if params[:image_delete].present?
     if @user.update(user_params)
      flash[:notice] = "ユーザー情報を更新しました"
      redirect_to profile_users_path
