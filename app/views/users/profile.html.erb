@@ -1,0 +1,25 @@
+<div class="container">
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+  <h3 class="postsTitle">プロフィール編集</h3>
+  <%= form_with model:@user, url: user_path(@user), local: true do |f| %>
+    <div class="profileBox">
+      <p class="projectNewTitle"><%= f.label :アイコン画像 %></p>
+      <div class="profileEditImage">
+        <% if @user.image? %>
+          <%= image_tag @user.image.url, :size => '60x60', class: "user-icon" %>
+        <% else %>
+          <%= image_tag "/assets/default.jpg", :size => '60x60', class: "user-icon" %>
+        <% end %>
+      </div>
+      <p><%= f.file_field :image %></p>
+      <p class="projectNewTitle"><%= f.label :ユーザー名 %></p>
+      <p><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "textForm" %></p>
+      <p class="projectNewTitle"><%= f.label :自己紹介 %></p>
+      <p><%= f.text_area :profile, autofocus: true, class: "projectIntroductionForm" %></p>
+      <div class="profileEditSubmit"><%= f.submit "更新", class: "returnSubmitButton" %></div>
+      <div><%= link_to "メールアドレス・パスワードの編集はこちら", edit_user_registration_path %></div>
+    </div>
+  <% end %>
+</div>

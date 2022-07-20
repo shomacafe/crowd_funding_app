@@ -1,0 +1,14 @@
+<div class="container">
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <h3 class="postsTitle">ログイン</h3>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="profileBox">
+      <p class="projectNewTitle"><%= f.label :メールアドレス %><span class="must">必須</span></p>
+      <p><%= f.email_field :email, autofocus: true, autocomplete: "email", class: "textForm" %></p>
+      <p class="projectNewTitle"><%= f.label :パスワード %><span class="must">必須</span></p>
+      <%= f.password_field :password, autocomplete: "current-password", class: "textForm" %></p>
+      <div class="profileEditSubmit"><%= f.submit "ログイン", class: "returnSubmitButton" %></div>
+      <div><%= link_to "新しいアカウントを作成", :new_user_registration%></div>
+    </div>
+  <% end %>
+</div>

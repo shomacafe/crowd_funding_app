@@ -1,0 +1,21 @@
+<div class="container">
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+  <h3 class="postsTitle">メールアドレス・パスワード編集</h3>
+  <%= form_with model: @user, url: registration_path(resource_name), local: true do |f| %>
+    <div class="profileBox">
+      <p class="projectNewTitle"><%= f.label :メールアドレス %></p>
+      <p><%= f.email_field :email, autofocus: true, autocomplete: "email", maxlength: "30", class: "textForm" %></p>
+      <p class="projectNewTitle"><%= f.label :変更後パスワード（変更する場合のみ入力） %></p>
+      <p><%= f.password_field :password, autofocus: true, autocomplete: "new-password", maxlength: "15", class: "textForm" %></p>
+      <p class="projectNewTitle"><%= f.label :変更後パスワード確認（変更する場合のみ入力）%></p>
+      <p><%= f.password_field :password_confirmation, autocomplete: "new-password", maxlength: "15", class: "textForm" %></p>
+      <p class="projectNewTitle"><%= f.label :現在のパスワード %><span class="must">必須</span></p>
+      <p><%= f.password_field :current_password, autocomplete: "current-password", maxlength: "15", class: "textForm" %></p>
+      <div class="profileEditSubmit"><%= f.submit "更新", class: "returnSubmitButton" %></div>
+      <div><%= link_to 'プロフィールの編集はこちら', profile_users_path %></div>
+    </div>
+  <% end %>
+</div>
