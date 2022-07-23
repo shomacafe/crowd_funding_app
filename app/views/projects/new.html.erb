@@ -1,0 +1,38 @@
+<div class="container">
+  <%= render "shared/error", obj: @project %>
+  <h3 class="postsTitle">プロジェクトをはじめる</h3>
+  <div class="box">
+    <%= form_with model: @project, method: :post, local: true do |f| %>
+      <h3 class="projectNew">プロジェクトの登録</h3>
+      <p class="projectNewTitle"><%= f.label :title ,"プロジェクトタイトル" %><span class="must">必須</span></p>
+      <p><%= f.text_field :title, class: "textForm" %></p>
+      <p class="projectNewTitle"><%= f.label :catch_copy ,"キャッチコピー" %><span class="must">必須</span></p>
+      <p class="catchCopyForm"><%= f.text_field :catch_copy_1, class: "textForm" %></p>
+      <p class="catchCopyForm"><%= f.text_field :catch_copy_2, class: "textForm" %></p>
+      <p class="catchCopyForm"><%= f.text_field :catch_copy_3, class: "textForm" %></p>
+      <p class="projectNewTitle"><%= f.label :target_amount ,"目標金額" %><span class="must">必須</span></p>
+      <p><%= f.number_field :target_amount, class: "textForm"  %></p>
+      <p class="projectNewTitle">実施期間<p>
+      <div>
+        <p class="projectNewTitle"><%= f.label :start_date ,"開始日" %><span class="must">必須</span></p>
+        <p><%= f.date_field :start_date, class: "textForm" %></p>
+      </div>
+      <div>
+        <p class="projectNewTitle"><%= f.label :end_date ,"終了日" %><span class="must">必須</span></p>
+        <p><%= f.date_field :end_date, class: "textForm" %></p>
+      </div>
+      <p class="projectNewTitle"><%= f.label :image, "プロジェクト画像" %><span class="must">必須</span></p>
+      <p><%= f.file_field :image %></p>
+      <div class="richTextForm">
+        <p class="projectNewTitle"><%= f.label :content, "プロジェクト説明" %><span class="must">必須</span></p>
+        <p><%= f.rich_text_area :content, class: "projectIntroductionForm" %></p>
+      </div>
+      <h2 class="projectReturnRegi">リターンの登録</h2>
+        <%= f.fields_for :returns do |r| %>
+          <%= render "return_fields", f: r %>
+        <% end %>
+      <div class="returnAdd"><%= link_to_add_association "リターンを追加する", f, :returns, class: "returnAddButton" %></div>
+      <div><%= f.submit "登録する", class: "returnSubmitButton" %></div>
+    <% end %>
+  </div>
+</div>

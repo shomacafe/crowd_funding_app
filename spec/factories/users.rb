@@ -4,5 +4,6 @@ FactoryBot.define do
     sequence(:email) { |n| "tester#{n}@example.com" }
     password { "testuser" }
     password_confirmation { "testuser"}
+    profile { "こんにちは" }
   end
 end

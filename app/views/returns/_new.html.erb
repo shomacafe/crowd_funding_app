@@ -1,0 +1,11 @@
+<div class="return">
+  <% @project.returns.each do |r| %> 
+    <section class="return-box">
+        <div class="return-name"><%= r.return_name %></div>
+        <div class="return-image-area"><%= image_tag r.return_image.to_s, class: "return-image" %></div>
+        <h4 class="return-price"><%= r.return_price.to_s(:delimited)  %>円</h4>
+        <p class="return-introduction"><%= r.return_introduction %></p>
+        (「応援する」ボタン)
+    </section>
+  <% end %>
+</div>

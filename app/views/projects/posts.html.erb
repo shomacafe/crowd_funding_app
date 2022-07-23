@@ -1,0 +1,33 @@
+<div class="container">
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+  <h3 class="postsTitle">作成したプロジェクト一覧</h3>
+    <% @projects.each do |project| %>
+      <div class="postBox">
+        <div class="postImageArea">
+          <div><%= link_to (image_tag "#{project.image}", class: "postImage"), project_path(project.id) %></div>
+        </div>
+        <div class="postInfo">
+          <div class="postTitle"><%= project.title %></div>
+          <p class="moneyTotalNum">(総額)円</p>
+          <div class="postMoneyMater">
+            (達成率)%
+          </div>
+          <div class="postDay">
+            <% if  project.start_date.after? Date.today %>
+              <%= project.start_date.strftime("%Y年 %m月 %d日") %>に開始予定です。
+            <% elsif project.end_date.before? Date.today %>
+              終了
+            <% else %>
+              残り<%= (project.end_date - Date.today).to_int %>日
+            <% end %>
+          </div>
+        </div>
+        <div class="postButton">
+          <%= link_to "編集", edit_project_path(project), class: "postEdit" %>
+          <%= link_to "削除", project, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "postDelete" %>
+        </div>
+      </div>
+    <% end %>
+</div>

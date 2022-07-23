@@ -1,0 +1,34 @@
+<div class="container">
+  <%= render "shared/error", obj: @project %>
+  <h3 class="postsTitle">プロジェクトの編集</h3>
+  <div class="box">
+    <%= form_with model: @project, local: true do |f| %>
+      <p class="projectNewTitle"><%= f.label :title ,"プロジェクトタイトル" %></p>
+      <p><%= f.text_field :title, class: "textForm" %></p>
+      <p class="projectNewTitle"><%= f.label :catch_copy ,"キャッチコピー" %></p>
+      <p class="catchCopyForm"><%= f.text_field :catch_copy_1, class: "textForm" %></p>
+      <p class="catchCopyForm"><%= f.text_field :catch_copy_2, class: "textForm" %></p>
+      <p><%= f.text_field :catch_copy_3, class: "textForm" %></p>
+      <p class="projectNewTitle"><%= f.label :target_amount ,"目標金額" %></p>
+      <p><%= f.number_field :target_amount, class: "textForm"  %></p>
+      <p class="projectNewTitle">実施期間<p>
+      <div>
+        <p class="projectNewTitle"><%= f.label :start_date ,"開始日" %></p>
+        <p><%= f.date_field :start_date, class: "textForm" %></p>
+      </div>
+      <div>
+        <p class="projectNewTitle"><%= f.label :end_date ,"終了日" %></p>
+        <p><%= f.date_field :end_date, class: "textForm" %></p>
+      </div>
+      <p class="projectNewTitle"><%= f.label :image, "プロジェクト画像" %></p>
+      <p><%= f.file_field :image %></p>
+      <div class="richTextForm">
+        <p class="projectNewTitle"><%= f.label :content, "プロジェクト説明" %></p>
+        <p><%= f.rich_text_area :content, class: "projectIntroductionForm" %></p>
+      </div>
+      <div class="returnAdd"><%= link_to_add_association "リターンを追加する", f, :returns, class: "returnAddButton" %></div>
+      <p>※リターンは追加のみ可能です。</p>
+      <div><%= f.submit "更新する", class: "returnSubmitButton" %></div>
+    <% end %>
+  </div>
+</div>
