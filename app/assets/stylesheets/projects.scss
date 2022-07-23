@@ -1,0 +1,588 @@
+//プロジェクトページ(projects/show)
+.heroBase{
+  background: none;
+  height: 400px;
+  padding-top: 30px;
+}
+
+.hero{
+  width: 1040px;
+  margin: auto;
+  height: 400px;
+  background: none;
+  position: relative;
+}
+
+.projectImage{
+  position: relative;
+  width: 710px;
+  height: 400px;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #d3d3d3;
+  border-radius: 5px;
+  box-shadow: #e4e4e4 0 4px 0;
+}
+
+.hero-image{
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 5px;
+}
+
+.projectInfo{
+  width: 310px;
+  height: 400px;
+  position: absolute;
+  background: white;
+  border-radius: 5px;
+  right: 0;
+  top: 0;
+  box-shadow: #e4e4e4 0 4px 0;
+}
+
+.successIcon{
+  display: block;
+  position: absolute;
+  top: -13px;
+  right: -18px;
+  font-size: 30px;
+  color: red;
+}
+
+.moneyTotal{
+  padding: 20px 25px;
+}
+
+.moneyTotalText{
+  font-size: 17px;
+  margin-bottom: 5px;
+}
+
+.moneyTotalNum{
+  margin-bottom: 5px;
+  font-size: 40px;
+  text-align: right;
+}
+
+.moneyGoal{
+  font-size: 15px;
+  text-align: right;
+}
+
+.supporter{
+  padding: 5px 25px;
+}
+
+.supporterText{
+  font-size: 16px;
+}
+
+.supporterNum{
+  margin-bottom: 5px;
+  font-size: 40px;
+  text-align: right;
+}
+
+.day{
+  padding: 5px 25px;
+}
+
+.dayText{
+  font-size: 17px;
+}
+
+.dayNum{
+  font-size: 40px;
+  text-align: right;
+}
+
+.start-day{
+  font-size: 25px;
+  text-align: right;
+}
+
+.startDayText{
+  text-align: right;
+}
+
+.heroBtmBase{
+  width: 1040px;
+  position: relative;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.projectTitle{
+  padding: 20px 32px;
+  text-align: center;
+}
+
+.projectTitleText{
+  font-size: 30px;
+}
+
+
+.commentContainer{
+  background: white;
+  border-radius: 5px;
+  box-shadow: #e4e4e4 0 4px 0;
+  padding-bottom: 10px;
+}
+
+.comment-content{
+  display: flex;
+  padding: 20px 30px;
+  border-bottom: 1px gray;
+}
+
+.comment-content-right{
+  display: block;
+  margin-left: 10px;
+}
+
+.comment-user-name{
+  display: inline-block;
+  font-size: 13px;
+  color: #333;
+}
+
+.comment-delete{
+  display: inline-block;
+  font-size: 13px;
+  color: #333;
+  margin-left: 30px;
+}
+
+.comment-message{
+  font-size: 15px;
+  margin-top: 4px;
+  line-height: 1.6;
+  color: #333;
+}
+
+
+.commentFormArea{
+  padding: 20px 20px 0 20px;
+  padding-bottom: 30px;
+}
+
+.commentForm{
+  width: 100%;
+  height: 50px;
+}
+
+.commentSubmitButton{
+  margin: auto;
+  width: 80px;
+  height: 30px;
+  color: white;
+  background: #4a90e2;
+  border: 2px solid #007bff;
+  border-radius: 3px;
+  font-size: 14px;
+  justify-content: center;
+  float: right;
+  display: flex;
+}
+
+//メイン
+
+.main{
+  width: 1040px;
+  margin: auto;
+  height: auto;
+  padding: 20px 0;
+}
+
+//メイン左
+.leftContent{
+  width: 655px;
+  margin-right: 35px;
+  float: left;
+}
+
+.balloon{
+  position: relative;
+  height: 76px;
+  margin: 18px 0 10px;
+  border-radius: 5px;
+  background: white;
+  box-shadow: #e4e4e4 0 4px 0;
+}
+
+.userProfileTitle{
+  display: inline-block;
+  font-size: 20px;
+}
+
+.userProfileText{
+  width: 630px;
+  height: 74px;
+  display: inline-block;
+  padding: 15px 10px;
+}
+
+.balloonTriangle{
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 74px;
+  left: 30px;
+  border-top: 10px solid white;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+
+.catchCopyTitle{
+  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+.catchCopyContainer{
+  padding: 28px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: #e4e4e4 0 4px 0;
+}
+
+.catchCopyText{
+  position: relative;
+  padding-left: calc(21px + 14px);
+  font-size: 15px;
+  line-height: 1.6;
+  font-weight: bold;
+  counter-increment: li;
+  -webkit-font-smoothing: antialiased;
+}
+
+.catchCopyText:not(:last-child){
+  margin-bottom: 24px;
+}
+
+.catchCopyText::before{
+  content: counter(li);
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 1px;
+  background-color: #cd853f;
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: bold;
+  text-align: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 13px;
+  font-family: 'lucida grande';
+  -webkit-font-smoothing: antialiased;
+  text-indent: 1px;
+}
+
+.projectMainTitle{
+  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+.leftContentMain{
+  padding: 20px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: #e4e4e4 0 4px 0;
+}
+
+//メイン右
+.rightContent{
+  width: 350px;
+  float: left;
+}
+
+.returnTitle{
+  font-size: 20px;
+
+  margin-bottom: 25px;
+}
+
+.return-box{
+  width: 310px;
+  padding: 20px;
+  background: white;
+  margin-bottom: 30px;
+  border-radius: 5px;
+  box-shadow: #e4e4e4 0 4px 0;
+  // border-style: solid;
+  // border:solid 4px;
+  // border-color: white white white #cd853f;
+}
+
+.return-name{
+  font-size: 19px;
+  margin-bottom: 15px;
+}
+
+.return-image-area{
+  position: relative;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.return-image{
+  width:auto;
+  height:auto;
+  max-width:100%;
+  max-height:100%;
+}
+
+
+.return-price{
+  position: relative;
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+
+.return-introduction{
+  margin-bottom: 15px;
+}
+
+.return-button{
+  text-align: center;
+}
+
+.form-submit{
+  color: white;
+  background-color: #4a90e2;
+  border-color: #007bff;
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+}
+
+.recommendedTitle{
+  font-size: 20px;
+  margin-top: 50px;
+  margin-bottom: 25px;
+}
+
+//プロジェクト一覧(projects/index)
+.recommendedIndexTitle{
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.recommendedDisplay{
+  font-size: 16px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+
+.recommendedIndexArea{
+  margin: 0 auto;
+  position: relative;
+  width: 90%;
+}
+
+.recommendedIndexContainer{
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+//作成済みプロジェクト一覧(projects/post)
+.postsTitle{
+  font-size: 20px;
+  text-align: center;
+  margin: 50px;
+}
+
+.postBox{
+  width: 700px;
+  margin: 25px auto;
+  height: 250px;
+  background: white;
+  position: relative;
+  box-shadow: #e4e4e4 0 4px 0;
+}
+
+.postImageArea{
+  position: relative;
+  width: 310px;
+  height: 175px;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+.postImage{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.postInfo{
+  width: 50%;
+  height: 175px;
+  padding: 20px;
+  position: absolute;
+  background: none;
+  right: 0;
+  top: 0;
+}
+
+.postTitle{
+  font-size: 20px;
+}
+
+.postMoneyMater{
+  float: right;
+}
+
+.postButton{
+  width: 650px;
+  margin: auto;
+  margin-top: 20px;
+  position: relative;;
+}
+
+.postEdit{
+  width: 300px;
+  height: 38px;
+  color: white;
+  background: #e65d65;
+  border-radius: 3px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.postDelete{
+  width: 300px;
+  height: 38px;
+  color: #e65d65;
+  border: 2px solid #e65d65;
+  border-radius: 3px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+  position: absolute;
+  top: 0;
+  right: 0; 
+}
+
+//プロジェクト登録(projects/new)
+.projectNew{
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.projectNewTitle{
+  font-size: 15px;
+  margin-top: 20px;
+}
+
+.projectReturnRegi{
+  padding-top: 10px;
+  margin: 20px 0;
+  border-top: 1px solid gray;
+}
+
+.textForm{
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  border: 1px solid #d3d3d3;
+}
+
+.catchCopyForm{
+  margin-bottom: 8px;
+}
+
+.projectIntroductionForm{
+  width: 100%;
+  height: 100px;
+  border-radius: 3px;
+  border: 1px solid #d3d3d3;
+}
+
+.richTextForm{
+  margin-right: 20px;
+}
+
+.returnImageForm{
+  margin-bottom: 20px;
+}
+
+.returnDelete{
+  border-bottom: 1px solid gray;
+  padding-bottom: 10px;
+}
+
+.returnDeleteButton{
+  width: 150px;
+  height: 34px;
+  color: white;
+  background: gray;
+  border-radius: 3px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.returnAdd{
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.returnAddButton{
+  width: 150px;
+  height: 34px;
+  color: white;
+  background: #e65d65;;
+  border-radius: 3px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.returnSubmitButton{
+  margin: auto;
+  width: 300px;
+  height: 40px;
+  color: white;
+  background: #4a90e2;
+  border: 2px solid #007bff;
+  border-radius: 3px;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
