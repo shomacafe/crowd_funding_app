@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :name, presence: true 
   validates :profile, length: { maximum: 200 }
   has_many :projects
+  has_many :purchases
 
   def self.guest
     find_or_create_by!(email: 'guest@example.com') do |user|

@@ -21,4 +21,9 @@ Rails.application.routes.draw do
       get 'posts'
     end
   end
+  resources :purchases, only: [:index, :new, :create, :destroy] do
+    collection do
+      post 'confirm'
+    end
+  end
 end

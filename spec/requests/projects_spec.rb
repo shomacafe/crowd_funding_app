@@ -4,7 +4,7 @@ RSpec.describe "Projects", type: :request do
   let(:user) { create(:user) }
   let(:project) { create(:project) }
   let(:project_params) { attributes_for(:project) }
-  let(:invalid_project_params) { attributes_for(:project, title: nil) }
+  let(:invalid_project_params) { attributes_for(:project, title: "") }
 
   before do
     sign_in user

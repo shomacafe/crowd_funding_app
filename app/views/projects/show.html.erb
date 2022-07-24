@@ -6,17 +6,21 @@
         <%= image_tag @project.image.to_s, class: "hero-image" %>
       </div>
       <div class="projectInfo">
+        <div class="successIcon">
+          <%= success_icon(@project) %>
+        </div>
         <div class="moneyTotal">
           <p class="moneyTotalText">応援購入総額</p>
-          <p class="moneyTotalNum">(総額)円</p>
+          <p class="moneyTotalNum"><%= total_price %>円</p>
           <p class="moneyGoal">目標金額 <%= @project.target_amount.to_s(:delimited) %>円</p>
           <div class="moneyMater">
-            (達成率)%
+            <%= success_rate %>%
+            <progress id="myProgress" value=<%= success_rate %> max="100">0%</progress>
           </div>
         </div>
         <div class="supporter">
           <p class="supporterText">サポーター</p>
-          <p class="supporterNum">()人</p>
+          <p class="supporterNum"><%= @project.purchases.count %>人</p>
         </div>
         <div class="day">
           <p class="dayText">残り</p>
@@ -76,9 +80,7 @@
 
     <div class="rightContent">
       <h3 class="returnTitle">リターン</h3>
-      <% @project.returns.each do |r| %> 
-        <div class="return-name"><%= r.return_name %></div>
-      <% end %>
+      <%= render "purchases/new" %>
     </div>
   </div>
   <section class="recommendedBase">
@@ -107,10 +109,10 @@
                   <% else %>
                     残り<%= (project.end_date - Date.today).to_int %>日
                   <% end %>
-                  <div class="recommended-total">(総額)円</div>
+                  <div class="recommended-total"><%= project.purchases.all.sum(:return_price).to_s(:delimited)  %>円</div>
                 </div>
                 <div class="return-bar">
-                  (達成率)%
+                  <progress id="myProgress" value=<%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %> max="100">0%</progress>
                 </div>
               </div>
             <% end %>
