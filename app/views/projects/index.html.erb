@@ -24,10 +24,11 @@
                   <% else %>
                     残り<%= (project.end_date - Date.today).to_int %>日
                   <% end %>
-                  <div class="recommended-total">(合計金額)円</div>
+                  <div class="recommended-total"><%= project.purchases.all.sum(:return_price).to_s(:delimited) %>円</div>
                 </div>
                 <div class="return-bar">
-                  (達成率)%
+                <%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %>%
+                  <progress id="myProgress" value=<%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %> max="100">0%</progress>
                 </div>
               </div>
             <% end %>

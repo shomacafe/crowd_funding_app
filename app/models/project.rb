@@ -32,14 +32,4 @@ class Project < ApplicationRecord
     return if end_date.blank? || start_date.blank?
     errors.add(:end_date, "は開始日以降のものを選択してください") if end_date < start_date
   end
-
-  # def start_end_check
-  #   errors.add(:end_date, "は開始日以降の日を選択してください") unless
-  #   self.start_date < self.end_date 
-  # end
-
-  # def date_before_start
-  #   errors.add(:start_date, "は今日以降の日を選択してください") if
-  #   start_date < Date.today
-  # end
 end

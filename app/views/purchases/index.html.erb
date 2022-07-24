@@ -1,0 +1,52 @@
+<div class="container">
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
+  <h3 class="postsTitle">応援したプロジェクト</h3>
+  <% @purchases.each do |purchase| %>
+    <div class="postPurchaseBox">
+      <% if purchase.project.blank? %>
+        <h3 class="purchaseDeleteText">プロジェクトが削除されたため表示されません。</h3>
+        <div class="postReturnButton">
+        <%= link_to "削除", purchase, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "postReturnDelete" %>
+      </div>
+      <% else %>
+        <div class="postImageArea">
+          <div><%= link_to (image_tag "#{purchase.project.image}", class: "postImage"), project_path(purchase.project.id) %></div>
+        </div>
+        <div class="postInfo">
+          <div class="postTitle"><%= purchase.project.title %></div>
+          <p class="moneyTotalNum"><%= purchase.project.purchases.all.sum(:return_price).to_s(:delimited)  %>円</p>
+          <div class="postMoneyMater">
+            <%= (purchase.project.purchases.all.sum(:return_price).to_f / purchase.project.target_amount.to_int * 100).floor(0).round(0) %>%
+            <progress id="myProgress" value=<%= (purchase.project.purchases.all.sum(:return_price).to_f / purchase.project.target_amount.to_int * 100).round(0) %> max="100">0%</progress>
+          </div>
+          <div class="postDay">
+            <% if  purchase.project.start_date.after? Date.today %>
+              <%= purchase.project.start_date %>に開始予定です。
+            <% elsif purchase.project.end_date.before? Date.today %>
+              終了
+            <% else %>
+              残り<%= (purchase.project.end_date - Date.today).to_int %>日
+            <% end %>
+          </div>
+        </div>
+        <h3 class="postReturnTitle">応援したリターン</h3>
+        <div class="postReturn">
+          <div class="postReturnImage">
+            <%= image_tag purchase.return_image, class: "postImage" %>
+          </div>
+          <div class="postReturnInfo">
+            <div class="postReturnName"><%= purchase.return_name %></div>
+            <div class="postReturnPrice"><%= purchase.return_price.to_s(:delimited)  %>円</div>
+          </div>
+        </div>
+        <div class="postReturnButton">
+          <%= link_to "削除", purchase, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "postReturnDelete" %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+
+

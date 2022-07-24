@@ -1,0 +1,26 @@
+<div class="return">
+  <% @project.returns.each do |r| %> 
+    <section class="return-box">
+      <%= form_with model: @purchase, method: :post, url: confirm_purchases_path, local: true do |f| %>
+        <div class="return-name"><%= r.return_name %></div>
+        <div class="return-image-area"><%= image_tag r.return_image.to_s, class: "return-image" %></div>
+        <h4 class="return-price"><%= r.return_price.to_s(:delimited)  %>円</h4>
+        <p class="return-introduction"><%= r.return_introduction %></p>
+        <div class="return-button">
+          <% if  @project.start_date.after? Date.today %>
+            <%= @project.start_date %>に開始予定です
+          <% elsif @project.end_date.before? Date.today %>
+            <h3>プロジェクトは終了しました</h3>
+          <% else %>
+            <%= f.submit "応援する", class:"form-submit" %>
+          <% end %>
+        </div>
+        <%= f.hidden_field :project_id, :value => @project.id %>       
+        <%= f.hidden_field :return_image, :value => r.return_image.to_s %>
+        <%= f.hidden_field :return_name, :value => r.return_name %>
+        <%= f.hidden_field :return_price, :value => r.return_price %>
+        <%= f.hidden_field :return_introduction, :value => r.return_introduction %>
+      <% end %>
+    </section>
+  <% end %>
+</div>

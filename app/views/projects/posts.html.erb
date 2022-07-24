@@ -10,9 +10,10 @@
         </div>
         <div class="postInfo">
           <div class="postTitle"><%= project.title %></div>
-          <p class="moneyTotalNum">(総額)円</p>
+          <p class="moneyTotalNum"><%= project.purchases.all.sum(:return_price).to_s(:delimited)  %>円</p>
           <div class="postMoneyMater">
-            (達成率)%
+            <%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).floor(0).round(0) %>%
+            <progress id="myProgress" value=<%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %> max="100">0%</progress>
           </div>
           <div class="postDay">
             <% if  project.start_date.after? Date.today %>

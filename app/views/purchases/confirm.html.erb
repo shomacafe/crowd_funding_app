@@ -1,0 +1,20 @@
+<div class="container">
+  <h3 class="postsTitle">応援するプロジェクト</h3>
+  <%= form_with model: @purchase, local: true do |f| %>
+    <div class="returnBox">
+      <div class="confirmImageArea">
+        <%= image_tag @purchase.return_image, class: "confirm-image"  %>
+      </div>
+      <p class="confirmReturnName"><%= @purchase.return_name %></p>
+      <p class="confirmReturnPrice"><%= @purchase.return_price.to_s(:delimited)  %>円</p>
+      <p class="confirmReturnIntro"><%= @purchase.return_introduction %><p>
+      <%= f.hidden_field :project_id, :value => @purchase.project.id %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+      <%= f.hidden_field :return_image, :value => @purchase.return_image %>
+      <%= f.hidden_field :return_name, :value => @purchase.return_name %>
+      <%= f.hidden_field :return_price, :value => @purchase.return_price %>
+      <%= f.hidden_field :return_introduction, :value => @purchase.return_introduction %>
+      <div class="profileEditSubmit"><%= f.submit "確定する", class: "returnSubmitButton" %></div>
+    </div>
+  <% end %>
+</div>
