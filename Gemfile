@@ -30,6 +30,7 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'actiontext'
+gem "jquery-rails"
 gem 'cocoon'
 gem 'ransack'
 

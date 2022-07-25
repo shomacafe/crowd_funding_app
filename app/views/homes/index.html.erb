@@ -2,5 +2,176 @@
   <% if flash[:notice] %>
     <p class="notice"><%= flash[:notice] %></p>
   <% end %>
-  <h2>ホーム画面</h2>
+  <div class="slider">
+    <% @slider_projects.each do |project| %>
+      <%= link_to project_path(project.id) do %>
+        <div class="slider-outer">
+          <%= image_tag project.image.to_s, class: 'slider-item rounded top-image', width: '100%' %>
+          <div class="slider-content">
+            <div class="sliderTop">
+              <div class="main-project">
+                <%= image_tag project.image.to_s, class: "sliderImage" %>
+                <h3 class="sliderTitle"><%= project.title %></h3>
+              </div>
+            </div>
+            <div class="sliderBottom">
+              <div class="time">
+                <span class="slider-text">残り</span>
+                <span class="slider-num"><%= (project.end_date - Date.today).to_int %>日</span>
+              </div>
+              <div class="money">
+                <span class="slider-text">集まっている金額</span>
+                <span class="slider-num"><%= project.purchases.all.sum(:return_price).to_s(:delimited)  %>円</span>
+              </div>
+              <div class="bar">
+                <div class="slider-parcent"><%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).floor(0).round(0) %>%</div>
+                <div><progress id="myProgress" value=<%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %> max="100">0%</progress></div>
+              </div>
+            </div>
+          </div>
+        </div>    
+      <% end %> 
+    <% end %>
+  </div>
+  <h3 class="homeMainTitle">クラウドファンディング シミュレーションアプリ「Shoma Cafe」</h3>
+  <div class="homeIntroduction">
+    <div class="leftIntroductionBox">
+    <%= link_to projects_new_path, class: "introductionLink" do %>
+      <div class="intoroductionbox">
+        <div class="introductionImage"><%= image_tag "/assets/chart.png", :size => "80x80" %></div>
+        <p class="introductionTitle">プロジェクトをはじめる</p>
+        <p class="introductionText">プロジェクト本番前に、ほっと一息しませんか？</p>
+        <p class="introductionText">サポーターからのリアクションを参考に、より良いプロジェクトを目指しましょう。</p>
+      </div>
+    <% end %>
+    </div>
+    <div class="rightIntroductionBox">
+      <%= link_to projects_path, class: "introductionLink" do %>
+        <div class="intoroductionbox">
+          <div class="introductionImage"><%= image_tag "/assets/support.png", :size => "80x80" %></div>
+          <p class="introductionTitle">プロジェクトを応援する</p>
+          <p class="introductionText">これから始まるプロジェクトのサポーターになりませんか？</p>
+          <p class="introductionText">「いいな」と思ったら応援やコメントをしてみましょう。ビックプロジェクトに繋がれば思わぬリターンがあるかもしれません。</p>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="recommendedHomeTitle">新しいプロジェクト</h3>
+  </div>
+  <section class="recommendedBase">
+    <div class="recommendedArea">
+      <div class="recommendedContainer">
+        <% @latest_projects.each do |project| %>
+          <div class="recommendedBox">
+            <%= link_to project_path(project.id) do %>
+              <div class="recommended-image-area">
+                <% if project.image.blank? %>
+                  <%= image_tag "/assets/new_awazi.jpeg", class: "recommended-image" %>
+                <% else %>
+                  <%= image_tag project.image.to_s, class: "recommended-image" %>
+                <% end %>
+              </div>
+              <p class="recommended-title"><%= project.title %></p>
+              <div class="recommended-bottom">
+                <div class="day-total">
+                  <% if  project.start_date.after? Date.today %>
+                    <p>開始予定</p>
+                  <% elsif project.end_date.before? Date.today %>
+                    終了
+                  <% else %>
+                    残り<%= (project.end_date - Date.today).to_int %>日
+                  <% end %>
+                  <div class="recommended-total"><%= project.purchases.all.sum(:return_price).to_s(:delimited)  %>円</div>
+                </div>
+                <div class="return-bar">
+                  <%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %>%
+                  <progress id="myProgress" value=<%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %> max="100">0%</progress>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %> 
+      </div>
+    </div>
+  </section>
+  <section class="recommendedBase">
+  <div>
+    <h3 class="recommendedHomeTitle">開始予定のプロジェクト</h3>
+  </div>
+  <div class="recommendedArea">
+    <div class="recommendedContainer">
+      <% @start_projects.each do |project| %>
+        <div class="recommendedBox">
+          <%= link_to project_path(project.id) do %>
+            <div class="recommended-image-area">
+              <% if project.image.blank? %>
+                <%= image_tag "/assets/new_awazi.jpeg", class: "recommended-image" %>
+              <% else %>
+                <%= image_tag project.image.to_s, class: "recommended-image" %>
+              <% end %>
+            </div>
+            <h4 class="recommended-title"><%= project.title %></h4>
+            <div class="recommended-bottom">
+              <div class="day-total">
+                <% if  project.start_date.after? Date.today %>
+                  <p>開始予定</p>
+                <% elsif project.end_date.before? Date.today %>
+                  終了
+                <% else %>
+                  残り<%= (project.end_date - Date.today).to_int %>日
+                <% end %>
+                <div class="recommended-total"><%= project.purchases.all.sum(:return_price).to_s(:delimited)  %>円</div>
+              </div>
+              <div class="return-bar">
+              <%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %>%
+              <progress id="myProgress" value=<%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %> max="100">0%</progress>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %> 
+    </div>
+  </div>
+  </section>
+  <div>
+    <h3 class="recommendedHomeTitle">終了したプロジェクト</h3>
+  </div>
+  <section class="recommendedBase">
+    <div class="recommendedArea">
+      <div class="recommendedContainer">
+        <% @end_projects.each do |project| %>
+          <div class="recommendedBox">
+            <%= link_to project_path(project.id) do %>
+              <div class="recommended-image-area">
+                <% if project.image.blank? %>
+                  <%= image_tag "/assets/new_awazi.jpeg", class: "recommended-image" %>
+                <% else %>
+                  <%= image_tag project.image.to_s, class: "recommended-image" %>
+                <% end %>
+              </div>
+              <p class="recommended-title"><%= project.title %></p>
+              <div class="recommended-bottom">
+                <div class="day-total">
+                  <% if  project.start_date.after? Date.today %>
+                    <p>開始予定</p>
+                  <% elsif project.end_date.before? Date.today %>
+                    終了
+                  <% else %>
+                    残り<%= (project.end_date - Date.today).to_int %>日
+                  <% end %>
+                  <div class="recommended-total"><%= project.purchases.all.sum(:return_price).to_s(:delimited)  %>円</div>
+                </div>
+                <div class="return-bar">
+                  <%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %>%
+                  <progress id="myProgress" value=<%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %> max="100">0%</progress>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        <% end %> 
+      </div>
+    </div>
+  </section>
 </div>
