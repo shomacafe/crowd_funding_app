@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :project do
-    title { "project_title" }
+    sequence(:title) { |n| "プロジェクト#{n}" }
     target_amount { 100 }
     start_date { "2032-07-20" }
     end_date { "2032-8-20" }
@@ -11,7 +11,6 @@ FactoryBot.define do
     user_id { 1 }
     purchase_id { 1 }
     image { Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/fixtures/test.jpg'))}
-    return_name { "リターン名" }
     association :user
 
     trait :with_nested_instances do
