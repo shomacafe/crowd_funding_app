@@ -76,8 +76,40 @@
       <div class="leftContentMain">
         <%= @project.content %>
       </div>
+      <section>
+        <h3 class="catchCopyTitle">コメント</h3>
+        <div class="commentContainer">
+          <div class="commentFormArea">
+            <% if current_user %>
+              <%= form_with model:[@project, @comment] do |f| %>
+                <p><%= f.text_area :message, autocomplete: "コメントする", :placeholder => "コメントを追加する", class: "commentForm" %></p>
+                <div><%= f.submit "投稿", class: "commentSubmitButton" %></div>   
+              <% end %>
+            <% else %>
+              <p>コメントを投稿するにはログインが必要です。</p>
+            <% end %>
+          </div>
+            <% @comments.each do |comment| %>
+              <div class="comment-content">
+                <p>
+                  <% if comment.user.image? %>
+                    <%= image_tag comment.user.image.url, :size => '60x60', class: "user-icon" %>
+                  <% else %>
+                    <%= image_tag "/assets/default.jpg", :size => '60x60', class: "user-icon" %>
+                  <% end %>
+                </p>
+                <div class="comment-content-right">
+                  <p class="comment-user-name"><%= comment.user.name %></p>
+                  <% if current_user == comment.user %>
+                    <p class="comment-delete"><%= link_to "削除", comment, method: :delete, data: { confirm: "本当に削除しますか？" } %></p>
+                  <% end %>
+                  <p class="comment-message"><%= comment.message %></p>
+                </div>
+              </div>
+            <% end %>
+        </div>
+       </section>
     </div>
-
     <div class="rightContent">
       <h3 class="returnTitle">リターン</h3>
       <%= render "purchases/new" %>
