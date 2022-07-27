@@ -20,7 +20,9 @@ Rails.application.routes.draw do
     collection do
       get 'posts'
     end
+    resources :comments, only: [:create]
   end
+  resources :comments, only: [:destroy]
   resources :purchases, only: [:index, :new, :create, :destroy] do
     collection do
       post 'confirm'

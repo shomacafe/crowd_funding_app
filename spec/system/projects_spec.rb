@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe "Projects", type: :system do
-
   let!(:user_a) { create(:user, name: "ユーザーA", email: "a@example.com") }
   let(:user_b) { create(:user, name: "ユーザーB", email: "b@example.com") }
   let!(:project_a) { create(:project, title:"プロジェクトA", user: user_a, returns: [returns]) }

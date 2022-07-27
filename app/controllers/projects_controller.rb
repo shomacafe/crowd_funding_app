@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    @project.update(project_params)
     @project.image.attach(params[:image]) if @project.image.blank?
     if @project.update(project_params)
      flash[:notice] = "プロジェクト内容を更新しました。"
@@ -40,6 +41,8 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @recommended_projects = Project.limit(4).order("RAND()").where.not(id: @project.id).where("start_date <= ?", Date.today).where.not("end_date < ?", Date.today)
+    @comment = Comment.new
+    @comments = @project.comments.order(created_at: :desc)
   end
 
 
@@ -57,6 +60,6 @@ class ProjectsController < ApplicationController
   def project_params
     params.require(:project)
     .permit(:title, :target_amount, :start_date, :end_date, :catch_copy_1, :catch_copy_2, :catch_copy_3, :image, :user_id, :purchase_id, :return_id, :content, :total_price,
-    returns_attributes: [:return_image, :return_price, :return_name, :return_introduction, :return_stock, :_destroy])
+    returns_attributes: [:return_image, :return_price, :return_name, :return_introduction, :_destroy])
   end
 end
