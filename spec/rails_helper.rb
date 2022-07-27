@@ -38,8 +38,6 @@ RSpec.configure do |config|
   config.include ActionTextHelper, type: :system
   config.after(:suite) do
     FileUtils.rm_rf("#{Rails.root}/public/uploads/tmp") #←ファイルがアップされるパス指定
-    FileUtils.rm_rf("#{Rails.root}/public/uploads_test/project")
-    FileUtils.rm_rf("#{Rails.root}/public/uploads_test/return")
   end
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your

@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
-    @recommended_projects = Project.limit(4).order("RAND()").where.not(id: @project.id).where("start_date < ?", Date.today).where.not("end_date < ?", Date.today)
+    @recommended_projects = Project.limit(4).order("RAND()").where.not(id: @project.id).where("start_date <= ?", Date.today).where.not("end_date < ?", Date.today)
   end
 
 

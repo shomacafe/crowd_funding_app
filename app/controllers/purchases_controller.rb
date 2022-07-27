@@ -18,7 +18,7 @@ class PurchasesController < ApplicationController
   def create
     @purchase = Purchase.new(purchase_params)
     if @purchase.save!
-      flash[:notice] = "応援購入が完了しました"
+      flash[:notice] = "応援が完了しました"
       redirect_to purchases_path
     else
       redirect_to root_path
