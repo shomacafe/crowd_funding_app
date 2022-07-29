@@ -91,5 +91,4 @@ RSpec.describe "Projects", type: :request do
       expect(response.body).to include(project.user.name)
     end
   end
-
 end

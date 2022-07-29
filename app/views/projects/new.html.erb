@@ -1,4 +1,7 @@
 <div class="container">
+  <% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+  <% end %>
   <%= render "shared/error", obj: @project %>
   <h3 class="postsTitle">プロジェクトをはじめる</h3>
   <div class="box">

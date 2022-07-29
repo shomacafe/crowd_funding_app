@@ -7,19 +7,15 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
   text-decoration: none;
 }
-
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
-
 li {
   list-style: none;
 }
-
 *{
   box-sizing: border-box;
 }
-
 footer{
   width:100%;
   height: 100px;
@@ -27,423 +23,769 @@ footer{
   background: #fff;
   text-align: center;
 }
-
 .footer-text{
   margin: 35px 0;
 }
-
-header {
-  background-color: white;
-  height: 80px;
-  position: fixed;
-  width: 100%;
-  z-index: 1000;
-}
-
-.headerLogo{
-  position: absolute;
-  left: 12px;
-  top: 15px;
-}
-
-.logo-image{
-  width: 200px;
-}
-
-.search_form{
-  max-width: 210px;
-  position: relative;
-  position: absolute;
-  top: 24px;
-  left: 230px;
-}
-
-.mobile_search_form{
-  display: none;
-}
-
-.searchBox{
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 210px;
-  height: 36px;
-  padding: 0 12px;
-  font-size: 14px;
-  line-height: 36px;
-  border-top: 1px solid #D3D3D3;
-  border-left: 1px solid #D3D3D3;
-  border-bottom: 1px solid #D3D3D3;
-  border-right: none;
-  border-radius: 4px 0 0 4px!important;
-  outline: none;
-}
-
-.searchButton{
-  position: absolute;
-  left: 210px;
-  width: 90px;
-  height: 36px;
-  border: 1px solid #d3d3d3;
-  border-radius: 0 4px 4px 0;
-  background: #fff;
-  overflow: hidden;
-  outline: none;
-  font-size: 14px;
-  color: #696969;
-}
-
-.project-start{
-  position: absolute;
-  left: 570px;
-  top: 30px;
-  font-size: 16px;
-  color: #696969;
-}
-
-.project-search{
-  position: absolute;
-  left: 800px;
-  top: 30px;
-  font-size: 16px;
-  color: #696969;
-}
-
-.dropdown-menu{
-  background-color: white;
-  border: 3px solid #F6F8F9;
-  position: absolute;
-  top: 69px;
-  right: 10px;
-  padding: 15px;
-  z-index: 1000;
-}
-
-.header-right-nav{
-  align-items: center;
-  float: right;
-  margin-top: 12px;
-  margin-right: 20px;
-}
-
-.nav-item{
-  padding-top: 14px;
-  display: flex;
-}
-
-.mobile-nav-item{
-  display: none;
-}
-
-.userArea{
-  padding-top: 8px;
-  height: 38px;
-  display: flex;
-  align-items: center;
-}
-
-.user-icon{
-  border-radius: 50%;
-  object-fit: cover;
-  width: 60px;
-  height: 60px;
-}
-
-.user_name{
-  margin-right: 20px;
-}
-
-
-.log-in{
-  width: 120px;
-  height: 38px;
+.notice {
   color: white;
-  background: #e65d65;
-  border-radius: 3px;
-  font-size: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
+  background-color: #DEB887;
+  padding: 5px;
 }
-
-.registration{
-  width: 86px;
-  height: 38px;
-  color: #e65d65;
-  border: 2px solid #e65d65;
-  border-radius: 3px;
-  font-size: 14px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.must{
+  color: white;
+  background-color: #fa8072;
+  padding: 4px;
   margin-left: 5px;
+  border-radius: 0.25rem;
+  font-size: 3px;
 }
-
-
-//スライドショー
-.container{
-  background: #f5f5f5;
-  padding-top: 80px;
-  padding-bottom: 80px;
-}
-
-.slider-outer{
-  position: relative;
-}
-
-.homeHero{
-  position: relative;
-}
-
-.top-image{
-  filter: brightness(60%) ;
-  object-fit: cover;
-  height: 500px;
-}
-
-.slider-content{
-  height: 500px;
-  width: 100%;
-  background: none;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.sliderTop{
-  color: #fff;
-  margin: auto;
-  margin-bottom: 10px;
-  margin-top: 80px;
-  width: 80%;
-}
-
-.main-project{
-  display: flex;
-  position: relative;
-  align-items: center;
-}
-
-.sliderImage{
-  max-width: 400px;
-  margin-right: 20px;
-}
-
-.sliderTitle{
-  font-size: 35px;
-}
-
-.sliderBottom{
+.error_massage{
   color: white;
-  padding-left: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
-  margin: auto;
-  padding-top: 30px;
-  width: 860px;
-  font-size: 17px;
+  background-color: #DEB887;
+  padding: 5px
 }
-
-.time{
-  margin-right: 34px;
+@media screen and (max-width: 767px) {
+  //ヘッダー
+  header {
+    background-color: white;
+    height: 150px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+  .header-left-nav{
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 20px;
+  }
+  .logo-image{
+    width: 150px;
+  }
+  .search_form{
+    display: none;
+  }
+  .mobile_search_form{
+    max-width: 210px;
+    position: absolute;
+    top: 70px;
+    left: 10px;
+  }
+  .mobile_searchBox{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 210px;
+    height: 36px;
+    padding: 0 12px;
+    font-size: 14px;
+    line-height: 36px;
+    border-top: 1px solid #D3D3D3;
+    border-left: 1px solid #D3D3D3;
+    border-bottom: 1px solid #D3D3D3;
+    border-right: none;
+    border-radius: 4px 0 0 4px!important;
+    outline: none;
+  }
+  .mobile_searchButton{
+    position: absolute;
+    left: 210px;
+    width: 90px;
+    height: 36px;
+    border: 1px solid #d3d3d3;
+    border-radius: 0 4px 4px 0;
+    background: #fff;
+    overflow: hidden;
+    outline: none;
+    font-size: 14px;
+    color: #696969;
+  }
+  .search_form{
+    max-width: 210px;
+    position: absolute;
+    top: 24px;
+    left: 230px;
+  }
+  .searchBox{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 210px;
+    height: 25px;
+    padding: 0 12px;
+    font-size: 14px;
+    line-height: 36px;
+    border-top: 1px solid #D3D3D3;
+    border-left: 1px solid #D3D3D3;
+    border-bottom: 1px solid #D3D3D3;
+    border-right: none;
+    border-radius: 4px 0 0 4px!important;
+    outline: none;
+  }
+  .searchButton{
+    position: absolute;
+    left: 210px;
+    width: 90px;
+    height: 25px;
+    border: 1px solid #d3d3d3;
+    border-radius: 0 4px 4px 0;
+    background: #fff;
+    overflow: hidden;
+    outline: none;
+    font-size: 14px;
+    color: #696969;
+  }
+  .project-start{
+    display:none;
+  }
+  .project-search{
+    display:none;
+  }
+  .dropdown-menu{
+    background-color: white;
+    border: 3px solid #F6F8F9;
+    position: absolute;
+    top: 140px;
+    right: 10px;
+    width: 100%;
+    padding: 15px;
+    z-index: 1000;
+  }
+  .header-right-nav{
+    align-items: center;
+    float: right;
+    margin-top: 12px;
+    margin-right: 20px;
+  }
+  .nav-item{
+    display: none;
+  }
+  .mobile-nav-item{
+    display: flex;
+    position: absolute;
+    left: 10px;
+    top: 100px;
+  }
+  .userArea{
+    padding-top: 8px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+  }
+  .user-icon{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 45px;
+    height:45px;
+    position: absolute;
+    right: 30px;
+    top: 100px;
+  }
+  .user_name{
+    display: none;
+  }
+  .log-in{
+    width: 100px;
+    height: 25px;
+    color: white;
+    background: #e65d65;
+    border-radius: 3px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+  .registration{
+    width: 80px;
+    height: 25px;
+    color: #e65d65;
+    border: 2px solid #e65d65;
+    border-radius: 3px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+  }
+  //スライドショー
+  .container{
+    background: #f5f5f5;
+    padding-top: 150px;
+    padding-bottom: 80px;
+  }
+  .slider-outer{
+    position: relative;
+  }
+  .homeHero{
+    position: relative;
+  }
+  .top-image{
+    filter: brightness(60%) ;
+    object-fit: cover;
+    height: 500px;
+  }
+  .slider-content{
+    height: 500px;
+    width: 100%;
+    background: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .sliderTop{
+    color: #fff;
+    margin: auto;
+    margin-top: 20px;
+    width: 80%;
+  }
+  .main-project{
+    position: relative;
+    align-items: center;
+  }
+  .sliderImage{
+    width: 100%;
+    position: relative;
+    align-items: center;
+    text-align: center;
+  }
+  .sliderTitle{
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  .sliderBottom{
+    color: white;
+    margin-bottom: 30px;
+    margin: auto;
+    padding-top: 10px;
+    width: 80%;
+    text-align: center;
+  }
+  .time{
+    margin-right: 34px;
+  }
+  .slider-text{
+    margin-right: 13px;
+    position: relative;
+    top: -2px;
+  }
+  .slider-num{
+    font-size: 24px;
+  }
+  .money{
+    margin-right: 36px;
+  }
+  .bar{
+    display: flex;
+  }
+  .slider-parcent{
+    margin-right: 10px;
+  }
+  //メイン
+  .homeMainTitle{
+    font-size: 15px;
+    text-align: center;
+    margin: 30px;
+  }
+  .homeIntroduction{
+    max-width: 1040px;
+    margin: auto;
+    margin-bottom: 15px;
+    background: none;
+    text-align: center;
+  }
+  .introductionLink{
+    color: black;
+  }
+  .intoroductionbox{
+    padding: 20px;
+  }
+  .leftIntroductionBox{
+    width: calc(100% - 20px);
+    margin: auto;
+    background-color: white;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.32);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+  }
+  .leftIntroductionBox:hover{
+    background-color: #F5DEB3;
+  }
+  .rightIntroductionBox:hover{
+    background-color: #F5DEB3;
+  }
+  .rightIntroductionBox{
+    width: calc(100% - 20px);
+    margin: auto;
+    margin-top: 20px;
+    background-color: white;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.32);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+  }
+  .introductionImage{
+    text-align: center;
+  }
+  .introductionTitle{
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+  }
+  .introductionText{
+    font-size: 10px;
+  }
+  //その他のプロジェクト
+  .recommendedBase{
+    position: relative;
+    display: block;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+  .recommendedArea{
+    margin: 5px;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .recommendedHomeTitle{
+    font-size: 15px;
+    margin-bottom: 5px;
+  }
+  .recommendedTitle{
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 25px;
+  }
+  .recommendedContainer{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .recommendedBox{
+    width: calc(50% - 10px);
+    margin: 5px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: #e4e4e4 0 4px 0;
+    position: relative;
+    font-size: 13px;
+  }
+  .recommended-image-area{
+    position: relative;
+    width: 100%;
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .recommended-image{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+  }
+  .recommended-title{
+    padding-bottom: 60px;
+    color: black;
+    font-size: 60%;
+  }
+  .day-total{
+    justify-content: space-evenly;
+    display: flex;
+    color: black;
+    font-size: 50%;
+  }
+  .return-bar{
+    color: black;
+    font-size: 80%;
+    display: inline-block;
+  }
+  .recommended-bottom{
+    position: absolute;
+    bottom: 10px;
+  }
+  .box{
+    width: 100%;
+    background-color: #fff;
+    border: none;
+    margin: 0;
+    padding: 30px 40px 40px 40px;
+  }
 }
-
-.slider-text{
-  margin-right: 13px;
-  position: relative;
-  top: -2px;
+@media screen and (max-width: 1340px){
+  .project-start{
+    display: none;
+  }
+  .project-search{
+    display:none;
+  }
 }
-
-.slider-num{
-  font-size: 27px;
-}
-
-.money{
-  margin-right: 36px;
-}
-
-.bar{
-  align-items: center;
-  display: flex;
-}
-
-.slider-parcent{
-  font-size: 24px;
-  margin-right: 20px;
-}
-
-.recommendedHomeTitle{
-  font-size: 20px;
-  margin-bottom: 25px;
-}
-
-//メイン
-.homeMainTitle{
-  font-size: 30px;
-  text-align: center;
-  margin: 50px;
-}
-
-.homeIntroduction{
-  max-width: 1040px;
-  margin: auto;
-  margin-bottom: 50px;
-  max-height: 400px;
-  background: none;
-  display: flex;
-  justify-content: space-between;
-}
-
-.introductionLink{
-  color: black;
-}
-
-.intoroductionbox{
-  padding: 20px;
-}
-
-.leftIntroductionBox{
-  width: calc(50% - 10px);
-  height: auto;
-  left: 0;
-  top: 0;
-  background-color: white;
-  border: 1px solid #dcdcdc;
-  border-radius: 5px;
-  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.32);
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all  0.3s ease;
-}
-
-.rightIntroductionBox{
-  width: calc(50% - 10px);
-  height: auto;
-  left: 0;
-  top: 0;
-  background-color: white;
-  border: 1px solid #dcdcdc;
-  border-radius: 5px;
-  box-shadow: 0 5px 6px rgba(0, 0, 0, 0.32);
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
-  transition: all  0.3s ease;
-}
-
-.leftIntroductionBox:hover{
-  background-color: #ffdab9;
-}
-
-.rightIntroductionBox:hover{
-  background-color: #ffdab9;
-}
-
-.introductionImage{
-  text-align: center;
-}
-
-.introductionTitle{
-  width: 100%;
-  text-align: center;
-  margin: 20px 0;
-  font: normal 20px "Noto Sans JP", sans-serif;
-}
-
-//プロジェクトピックアップ(4つ)
-.recommendedBase{
-  position: relative;
-  display: block;
-  height: auto;
-  width: 100%;
-  overflow: hidden;
-}
-
-.recommendedArea{
-  margin: 5px;
-}
-
-.recommendedHomeTitle{
-  font-size: 27px;
-  margin: 25px 0;
-  text-align: center;
-}
-
-.recommendedTitle{
-  font-size: 20px;
-  margin-top: 60px;
-  margin-bottom: 25px;
-}
-
-.recommendedContainer{
-  position: relative;
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 100px;
-  padding-right: 100px;
-}
-
-.recommendedBox{
-  width: calc(25% - 20px);
-  padding: 15px;
-  margin: 10px;
-  background: #fff;
-  border-radius: 5px;
-  box-shadow: #e4e4e4 0 4px 0;
-  position: relative;
-}
-
-.recommended-image-area{
-  position: relative;
-  width: 100%;
-  display: flex;
-  background-color: white;
-  border-radius: 5px;
-  margin-bottom: 10px;
-}
-
-.recommended-image{
-  width:auto;
-  height:auto;
-  max-width:100%;
-  max-height:100%;
-}
-
-.recommended-title{
-  margin-bottom: 80px;
-  color: black;
-}
-
-.day-total{
-  display: flex;
-  justify-content: space-between;
-  color: black;
-}
-
-.return-bar{
-  color: black;
-  font-size: 80%;
-  display: inline-block;
-  text-align: right;
-}
-
-.recommended-bottom{
-  position: absolute;
-  bottom: 10px;
-  width: 80%;
-}
-
-
-//共通
-.box{
-  max-width: 700px;
-  background-color: #fff;
-  border: 1px solid #c0c0c0;
-  margin: 50px auto;
-  padding: 30px 40px 40px 40px;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+@media screen and (min-width: 768px) {
+  //ヘッダー
+  header {
+    background-color: white;
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+  }
+  .headerLogo{
+    position: absolute;
+    left: 12px;
+    top: 17px;
+  }
+  .logo-image{
+    width: 200px;
+  }
+  .search_form{
+    max-width: 210px;
+    position: relative;
+    position: absolute;
+    top: 33px;
+    left: 230px;
+  }
+  .mobile_search_form{
+    display: none;
+  }
+  .searchBox{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 170px;
+    height: 25px;
+    padding: 0 12px;
+    font-size: 14px;
+    line-height: 36px;
+    border-top: 1px solid #D3D3D3;
+    border-left: 1px solid #D3D3D3;
+    border-bottom: 1px solid #D3D3D3;
+    border-right: none;
+    border-radius: 4px 0 0 4px!important;
+    outline: none;
+  }
+  .searchButton{
+    position: absolute;
+    left: 170px;
+    width: 70px;
+    height: 25px;
+    border: 1px solid #d3d3d3;
+    border-radius: 0 4px 4px 0;
+    background: #fff;
+    overflow: hidden;
+    outline: none;
+    font-size: 14px;
+    color: #696969;
+  }
+  .project-start{
+    position: absolute;
+    left: 580px;
+    top: 33px;
+    font-size: 16px;
+    color: #696969;
+  }
+  .project-search{
+    position: absolute;
+    left: 800px;
+    top: 33px;
+    font-size: 16px;
+    color: #696969;
+  }
+  .dropdown-menu{
+    background-color: white;
+    border: 3px solid #F6F8F9;
+    position: absolute;
+    top: 69px;
+    right: 10px;
+    padding: 15px;
+    z-index: 1000;
+  }
+  .header-right-nav{
+    align-items: center;
+    float: right;
+    margin-top: 12px;
+    margin-right: 20px;
+  }
+  .nav-item{
+    padding-top: 14px;
+    display: flex;
+  }
+  .mobile-nav-item{
+    display: none;
+  }
+  .userArea{
+    padding-top: 8px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+  }
+  .user-icon{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+  }
+  .user_name{
+    margin-right: 20px;
+  }
+  .log-in{
+    width: 120px;
+    height: 38px;
+    color: white;
+    background: #DEB887;
+    border: 2px solid #D2B48C;
+    border-radius: 3px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+  .registration{
+    width: 86px;
+    height: 38px;
+    color: #D2B48C;
+    border: 2px solid #D2B48C;
+    border-radius: 3px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+  }
+  //スライドショー
+  .container{
+    background: #f5f5f5;
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+  .slider-outer{
+    position: relative;
+  }
+  .homeHero{
+    position: relative;
+  }
+  .top-image{
+    filter: brightness(60%) ;
+    object-fit: cover;
+    height: 500px;
+  }
+  .slider-content{
+    height: 500px;
+    width: 100%;
+    background: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .sliderTop{
+    color: #fff;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 80px;
+    width: 80%;
+  }
+  .main-project{
+    display: flex;
+    position: relative;
+    align-items: center;
+  }
+  .sliderImage{
+    max-width: 400px;
+    margin-right: 20px;
+  }
+  .sliderTitle{
+    font-size: 35px;
+  }
+  .sliderBottom{
+    color: white;
+    padding-left: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    margin: auto;
+    padding-top: 30px;
+    width: 860px;
+    font-size: 17px;
+  }
+  .time{
+    margin-right: 34px;
+  }
+  .slider-text{
+    margin-right: 13px;
+    position: relative;
+    top: -2px;
+  }
+  .slider-num{
+    font-size: 27px;
+  }
+  .money{
+    margin-right: 36px;
+  }
+  .bar{
+    align-items: center;
+    display: flex;
+  }
+  .slider-parcent{
+    font-size: 24px;
+    margin-right: 20px;
+  }
+  .recommendedHomeTitle{
+    font-size: 20px;
+    margin-bottom: 25px;
+  }
+  //メイン
+  .homeMainTitle{
+    font-size: 30px;
+    text-align: center;
+    margin: 50px;
+  }
+  .homeIntroduction{
+    max-width: 1040px;
+    margin: auto;
+    margin-bottom: 50px;
+    max-height: 400px;
+    background: none;
+    display: flex;
+    justify-content: space-between;
+  }
+  .introductionLink{
+    color: black;
+  }
+  .intoroductionbox{
+    padding: 20px;
+  }
+  .leftIntroductionBox{
+    width: calc(50% - 10px);
+    height: auto;
+    left: 0;
+    top: 0;
+    background-color: white;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.32);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+  }
+  .rightIntroductionBox{
+    width: calc(50% - 10px);
+    height: auto;
+    left: 0;
+    top: 0;
+    background-color: white;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    box-shadow: 0 5px 6px rgba(0, 0, 0, 0.32);
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all  0.3s ease;
+  }
+  .leftIntroductionBox:hover{
+    background-color: #F5DEB3;
+  }
+  .rightIntroductionBox:hover{
+    background-color: #F5DEB3;
+  }
+  .introductionImage{
+    text-align: center;
+  }
+  .introductionTitle{
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    font: normal 20px "Noto Sans JP", sans-serif;
+  }
+  //プロジェクトピックアップ(4つ)
+  .recommendedBase{
+    position: relative;
+    display: block;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+  }
+  .recommendedArea{
+    margin: 5px;
+  }
+  .recommendedHomeTitle{
+    font-size: 27px;
+    margin: 25px 0;
+    text-align: center;
+  }
+  .recommendedTitle{
+    font-size: 20px;
+    margin-top: 60px;
+    margin-bottom: 25px;
+  }
+  .recommendedContainer{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+  .recommendedBox{
+    width: calc(25% - 20px);
+    padding: 15px;
+    margin: 10px;
+    background: #fff;
+    border-radius: 5px;
+    box-shadow: #e4e4e4 0 4px 0;
+    position: relative;
+  }
+  .recommended-image-area{
+    position: relative;
+    width: 100%;
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  .recommended-image{
+    width:auto;
+    height:auto;
+    max-width:100%;
+    max-height:100%;
+  }
+  .recommended-title{
+    margin-bottom: 80px;
+    color: black;
+  }
+  .day-total{
+    display: flex;
+    justify-content: space-between;
+    color: black;
+  }
+  .return-bar{
+    color: black;
+    font-size: 80%;
+    display: inline-block;
+    text-align: right;
+  }
+  .recommended-bottom{
+    position: absolute;
+    bottom: 10px;
+    width: 80%;
+  }
+  .box{
+    max-width: 700px;
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    margin: 50px auto;
+    padding: 30px 40px 40px 40px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+  }
 }

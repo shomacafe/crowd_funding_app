@@ -1,0 +1,23 @@
+<h3 class="homeMainTitle">クラウドファンディング シミュレーションアプリ「Shoma Cafe」</h3>
+<div class="homeIntroduction">
+  <div class="leftIntroductionBox">
+    <%= link_to projects_new_path, class: "introductionLink" do %>
+      <div class="intoroductionbox">
+        <div class="introductionImage"><%= image_tag "/assets/chart.png", :size => "80x80" %></div>
+        <p class="introductionTitle">プロジェクトをはじめたい</p>
+        <p class="introductionText">プロジェクト本番前に、ほっと一息しませんか？</p>
+        <p class="introductionText">サポーターからのリアクションを参考に、より良いプロジェクトを目指しましょう。</p>
+      </div>
+    <% end %>
+  </div>
+  <div class="rightIntroductionBox">
+    <%= link_to projects_path, class: "introductionLink" do %>
+      <div class="intoroductionbox">
+        <div class="introductionImage"><%= image_tag "/assets/support.png", :size => "80x80" %></div>
+        <p class="introductionTitle">プロジェクトを応援したい</p>
+        <p class="introductionText">「プロジェクトのスタート」を一緒にサポートしませんか？</p>
+        <p class="introductionText">「いいな」と思ったら応援やコメントをしてみましょう。ビッグプロジェクトに繋がれば思わぬリターンがあるかもしれません。</p>
+      </div>
+    <% end %>
+  </div>
+</div>

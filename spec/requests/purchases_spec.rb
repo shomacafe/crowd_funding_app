@@ -8,7 +8,6 @@ RSpec.describe "Purchases", type: :request do
   let(:purchase_params) { attributes_for(:purchase) }
   let(:invalid_purchase_params) { attributes_for(:purchase, return_name: "") }
 
-
   before do
     sign_in user
   end

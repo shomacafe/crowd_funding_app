@@ -1,156 +1,18 @@
+<% provide(:title, @project.title) %>
 <%= render "shared/error", obj: @project %>
 <div class="container">
-  <div class="heroBase">
-    <div class="hero">
-      <div class="projectImage">
-        <%= image_tag @project.image.to_s, class: "hero-image" %>
-      </div>
-      <div class="projectInfo">
-        <div class="successIcon">
-          <%= success_icon(@project) %>
-        </div>
-        <div class="moneyTotal">
-          <p class="moneyTotalText">応援購入総額</p>
-          <p class="moneyTotalNum"><%= total_price %>円</p>
-          <p class="moneyGoal">目標金額 <%= @project.target_amount.to_s(:delimited) %>円</p>
-          <div class="moneyMater">
-            <%= success_rate %>%
-            <progress id="myProgress" value=<%= success_rate %> max="100">0%</progress>
-          </div>
-        </div>
-        <div class="supporter">
-          <p class="supporterText">サポーター</p>
-          <p class="supporterNum"><%= @project.purchases.count %>人</p>
-        </div>
-        <div class="day">
-          <p class="dayText">残り</p>
-          <p class="dayNum">
-            <% if  @project.start_date.after? Date.today %>
-              <p class="start-day"><%= @project.start_date.strftime("%Y年 %m月 %d日") %></p><p class="startDayText">に開始予定です。</p>
-            <% elsif @project.end_date.before? Date.today %>
-              終了
-            <% else %>
-              <%= (@project.end_date - Date.today).to_int %>日
-            <% end %>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="heroBtmBase">
-    <div class="projectTitle">
-      <p class="projectTitleText"><%= @project.title %></p>
-    </div>
-  </div>
-
+  <%= render "hero_base", project: @project %>
   <div class="main">
     <div class="leftContent">
-      <div class="userProfile">
-        <h3 class="userProfileTitle">企画者のプロフィール</h3>
-        <div class="balloon">
-          <span class="userProfileText"><%= @project.user.profile %></span>
-          <div class="balloonTriangle"></div>
-        </div>
-        <div class="owner-profile">
-          <div>
-            <% if @project.user.image? %>
-              <%= image_tag @project.user.image.url, :size => '60x60', class: "user-icon" %>
-            <% else %>
-              <%= image_tag "/assets/default.jpg", :size => '60x60', class: "user-icon" %>
-            <% end %>
-            <%= @project.user.name %>
-          </div>
-        </div>
-      </div>
-      <section>
-        <h3 class="catchCopyTitle">キャッチコピー</h3>
-        <div class="catchCopyContainer">
-          <ul>
-            <li class="catchCopyText"><%= @project.catch_copy_1 %></li>
-            <li class="catchCopyText"><%= @project.catch_copy_2 %></li>
-            <li class="catchCopyText"><%= @project.catch_copy_3 %></li>
-          </ul>
-        </div>
-      </section>
-      <h3 class="projectMainTitle">プロジェクト概要</h3>
-      <div class="leftContentMain">
-        <%= @project.content %>
-      </div>
-      <section>
-        <h3 class="catchCopyTitle">コメント</h3>
-        <div class="commentContainer">
-          <div class="commentFormArea">
-            <% if current_user %>
-              <%= form_with model:[@project, @comment] do |f| %>
-                <p><%= f.text_area :message, autocomplete: "コメントする", :placeholder => "コメントを追加する", class: "commentForm" %></p>
-                <div><%= f.submit "投稿", class: "commentSubmitButton" %></div>   
-              <% end %>
-            <% else %>
-              <p>コメントを投稿するにはログインが必要です。</p>
-            <% end %>
-          </div>
-            <% @comments.each do |comment| %>
-              <div class="comment-content">
-                <p>
-                  <% if comment.user.image? %>
-                    <%= image_tag comment.user.image.url, :size => '60x60', class: "user-icon" %>
-                  <% else %>
-                    <%= image_tag "/assets/default.jpg", :size => '60x60', class: "user-icon" %>
-                  <% end %>
-                </p>
-                <div class="comment-content-right">
-                  <p class="comment-user-name"><%= comment.user.name %></p>
-                  <% if current_user == comment.user %>
-                    <p class="comment-delete"><%= link_to "削除", comment, method: :delete, data: { confirm: "本当に削除しますか？" } %></p>
-                  <% end %>
-                  <p class="comment-message"><%= comment.message %></p>
-                </div>
-              </div>
-            <% end %>
-        </div>
-       </section>
+      <%= render "profile", project: @project %>
+      <%= render "catch_copy", project: @project %>
+      <%= render "left_content_main", project: @project %>
+      <%= render "comment", comment: @comment %>
     </div>
     <div class="rightContent">
       <h3 class="returnTitle">リターン</h3>
       <%= render "purchases/new" %>
     </div>
   </div>
-  <section class="recommendedBase">
-  <div class="recommendedArea">
-    <div>
-      <h3 class="recommendedTitle">その他のプロジェクト</h3>
-    </div>
-      <div class="recommendedContainer">
-        <% @recommended_projects.each do |project| %>
-          <div class="recommendedBox">
-            <%= link_to project_path(project.id) do %>
-              <div class="recommended-image-area">
-                <% if project.image.blank? %>
-                  <%= image_tag "/assets/new_awazi.jpeg", class: "recommended-image" %>
-                <% else %>
-                  <%= image_tag project.image.to_s, class: "recommended-image" %>
-                <% end %>
-              </div>
-              <h4 class="recommended-title"><%= project.title %></h4>
-              <div class="recommended-bottom">
-                <div class="day-total">
-                  <% if  project.start_date.after? Date.today %>
-                    <p>開始予定</p>
-                  <% elsif project.end_date.before? Date.today %>
-                    終了
-                  <% else %>
-                    残り<%= (project.end_date - Date.today).to_int %>日
-                  <% end %>
-                  <div class="recommended-total"><%= project.purchases.all.sum(:return_price).to_s(:delimited)  %>円</div>
-                </div>
-                <div class="return-bar">
-                  <progress id="myProgress" value=<%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %> max="100">0%</progress>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        <% end %> 
-    </div>
-    </div>
-  </section>
+  <%= render "recommended", recommended_projects: @recommended_projects %>
 </div>

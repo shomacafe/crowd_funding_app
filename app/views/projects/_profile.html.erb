@@ -1,0 +1,17 @@
+<div class="userProfile">
+  <h3 class="userProfileTitle">企画者のプロフィール</h3>
+  <div class="balloon">
+    <span class="userProfileText"><%= project.user.profile %></span>
+    <div class="balloonTriangle"></div>
+  </div>
+  <div class="owner-profile">
+    <div>
+      <% if project.user.image? %>
+        <%= image_tag @project.user.image.url, :size => '60x60', class: "user-icon" %>
+      <% else %>
+        <%= image_tag "/assets/default.jpg", :size => '60x60', class: "user-icon" %>
+      <% end %>
+      <%= project.user.name %>
+    </div>
+  </div>
+</div>
