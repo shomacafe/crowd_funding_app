@@ -8,8 +8,8 @@
       <% if purchase.project.blank? %>
         <h3 class="purchaseDeleteText">プロジェクトが削除されたため表示されません。</h3>
         <div class="postReturnButton">
-        <%= link_to "削除", purchase, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "postReturnDelete" %>
-      </div>
+          <%= link_to "削除", purchase, method: :delete, data: { confirm: "本当に削除しますか？" }, class: "postReturnDelete" %>
+        </div>
       <% else %>
         <div class="postImageArea">
           <div><%= link_to (image_tag "#{purchase.project.image}", class: "postImage"), project_path(purchase.project.id) %></div>

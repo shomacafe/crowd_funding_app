@@ -1,0 +1,28 @@
+ja:
+  activerecord:
+    models:
+      project: プロジェクト
+      user: ユーザー
+    attributes:
+      project:
+        title: タイトル
+        target_amount: 目標金額
+        catch_copy_1: キャッチコピー1
+        catch_copy_2: キャッチコピー2
+        catch_copy_3: キャッチコピー3
+        start_date: 開始日
+        end_date: 終了日
+        image: プロジェクト画像
+        content: プロジェクト説明
+        returns: リターン
+      project/returns:
+        return_image: リターン画像
+        return_price: リターン価格
+        return_name: リターン名
+        return_introduction: リターンの紹介文
+      user:
+        name: ユーザー名
+        password: パスワード
+        email: メールアドレス
+        current_password: 現在のパスワード
+      

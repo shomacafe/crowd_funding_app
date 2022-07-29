@@ -1,17 +1,35 @@
-.profileBox{
-  max-width: 500px;
-  background-color: #fff;
-  border: 1px solid #c0c0c0;
-  margin: 50px auto;
-  padding: 30px 40px 40px 40px;
-  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
-  text-align: center;
+@media screen and (max-width: 767px) {
+  //プロフィール編集(users/profile)
+  .profileBox{
+    width: 100%;
+    background-color: #fff;
+    border: none;
+    margin: 0;
+    padding: 30px 40px 40px 40px;
+    text-align: center;
+  }
+  .profileEditImage{
+    margin: 20px 0;
+  }
+  .profileEditSubmit{
+    margin: 20px 0;
+  }
 }
-
-.profileEditImage{
-  margin: 20px 0;
-}
-
-.profileEditSubmit{
-  margin: 20px 0;
+@media screen and (min-width: 768px) {
+  //プロフィール編集(users/profile)
+  .profileBox{
+    max-width: 500px;
+    background-color: #fff;
+    border: 1px solid #c0c0c0;
+    margin: 50px auto;
+    padding: 30px 40px 40px 40px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+    text-align: center;
+  }
+  .profileEditImage{
+    margin: 20px 0;
+  }
+  .profileEditSubmit{
+    margin: 20px 0;
+  }
 }

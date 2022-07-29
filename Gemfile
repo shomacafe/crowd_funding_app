@@ -33,6 +33,7 @@ gem 'actiontext'
 gem "jquery-rails"
 gem 'cocoon'
 gem 'ransack'
+gem 'rails-i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -65,3 +66,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
+gem 'devise-i18n'

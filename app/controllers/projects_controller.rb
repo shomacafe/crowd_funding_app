@@ -33,8 +33,7 @@ class ProjectsController < ApplicationController
      flash[:notice] = "プロジェクト内容を更新しました。"
      redirect_to posts_projects_path
     else
-    flash[:notice] = "プロジェクト内容を更新できませんでした。"
-     redirect_to root_path
+     render "edit"
     end
   end
 

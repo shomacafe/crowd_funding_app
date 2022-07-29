@@ -1,0 +1,36 @@
+<section class="recommendedBase">
+  <div class="recommendedArea">
+    <div class="recommendedContainer">
+      <% projects.each do |project| %>
+        <div class="recommendedBox">
+          <%= link_to project_path(project.id) do %>
+            <div class="recommended-image-area">
+              <% if project.image.blank? %>
+                <%= image_tag "/assets/new_awazi.jpeg", class: "recommended-image" %>
+              <% else %>
+                <%= image_tag project.image.to_s, class: "recommended-image" %>
+              <% end %>
+            </div>
+            <p class="recommended-title"><%= project.title %></p>
+            <div class="recommended-bottom">
+              <div class="day-total">
+                <% if  project.start_date.after? Date.today %>
+                  <p>開始予定</p>
+                <% elsif project.end_date.before? Date.today %>
+                  終了
+                <% else %>
+                  残り<%= (project.end_date - Date.today).to_int %>日
+                <% end %>
+                <div class="recommended-total"><%= project.purchases.all.sum(:return_price).to_s(:delimited)  %>円</div>
+              </div>
+              <div class="return-bar">
+                <%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %>%
+                <progress id="myProgress" value=<%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %> max="100">0%</progress>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %> 
+    </div>
+  </div>
+</section>

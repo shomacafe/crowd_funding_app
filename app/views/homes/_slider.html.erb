@@ -1,0 +1,31 @@
+<div class="slider">
+  <% slider_projects.each do |project| %>
+    <%= link_to project_path(project.id) do %>
+      <div class="slider-outer">
+        <%= image_tag project.image.to_s, class: 'slider-item rounded top-image', width: '100%' %>
+        <div class="slider-content">
+          <div class="sliderTop">
+            <div class="main-project">
+              <%= image_tag project.image.to_s, class: "sliderImage" %>
+              <h3 class="sliderTitle"><%= project.title %></h3>
+            </div>
+          </div>
+          <div class="sliderBottom">
+            <div class="time">
+              <span class="slider-text">残り</span>
+              <span class="slider-num"><%= (project.end_date - Date.today).to_int %>日</span>
+            </div>
+            <div class="money">
+              <span class="slider-text">集まっている金額</span>
+              <span class="slider-num"><%= project.purchases.all.sum(:return_price).to_s(:delimited)  %>円</span>
+            </div>
+            <div class="bar">
+              <div class="slider-parcent"><%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).floor(0).round(0) %>%</div>
+              <div><progress id="myProgress" value=<%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %> max="100">0%</progress></div>
+            </div>
+          </div>
+        </div>
+      </div>    
+    <% end %> 
+  <% end %>
+</div>

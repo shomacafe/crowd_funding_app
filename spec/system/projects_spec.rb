@@ -77,7 +77,7 @@ RSpec.describe "Projects", type: :system do
       let(:project_title) { "" }
 
       it "エラーとなること" do
-        expect(page).to have_selector ".container", text: "can't be blank"
+        expect(page).to have_selector ".container", text: "タイトルを入力してください"
       end
     end
   end
@@ -85,6 +85,10 @@ RSpec.describe "Projects", type: :system do
   describe "プロジェクト詳細表示機能" do
     before do
       visit project_path(project_a)
+    end
+
+    it "ページタイトルが表示されること" do
+      expect(page).to have_title "#{project_a.title} - Shoma Cafe"
     end
 
     it "プロジェクトが表示されること" do

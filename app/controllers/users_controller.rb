@@ -1,7 +1,4 @@
 class UsersController < ApplicationController
-  def index
-    @users = User.all
-  end
 
   def edit
     @user = User.find(params[:id])
@@ -15,7 +12,7 @@ class UsersController < ApplicationController
      flash[:notice] = "ユーザー情報を更新しました"
      redirect_to profile_users_path
     else
-     redirect_to profile_users_path
+     render profile_users_path
     end
   end
 

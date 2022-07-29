@@ -1,6 +1,6 @@
 <div class="container">
   <section class="recommendedBase">
-  <div class="recommendedIndexArea">
+    <div class="recommendedIndexArea">
       <h3 class="recommendedIndexTitle">プロジェクト一覧</h3>
       <h4 class="recommendedDisplay">表示件数：<%= @projects.count %>件</h4>
       <div class="recommendedIndexContainer">
@@ -27,14 +27,14 @@
                   <div class="recommended-total"><%= project.purchases.all.sum(:return_price).to_s(:delimited) %>円</div>
                 </div>
                 <div class="return-bar">
-                <%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %>%
+                  <%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %>%
                   <progress id="myProgress" value=<%= (project.purchases.all.sum(:return_price).to_f / project.target_amount.to_int * 100).round(0) %> max="100">0%</progress>
                 </div>
               </div>
             <% end %>
           </div>
         <% end %> 
-    </div>
+      </div>
     </div>
   </section>
 </div>
