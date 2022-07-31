@@ -11,7 +11,7 @@
         <% if @user.image? %>
           <%= image_tag @user.image.url, :size => '60x60', class: "user-icon" %>
         <% else %>
-          <%= image_tag "/assets/default.jpg", :size => '60x60', class: "user-icon" %>
+          <%= image_tag "default.jpg", :size => '60x60', class: "user-icon" %>
         <% end %>
       </div>
       <p><%= f.file_field :image %></p>

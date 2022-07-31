@@ -1,8 +1,14 @@
 <header class="header">
   <div class="header-left-nav">
-    <%= link_to (image_tag "/assets/logo.png", width:"200px", class: "logo-image"), root_path, data: {"turbolinks" => false}, class: "headerLogo" %>
+    <%= link_to (image_tag "logo.png", width:"200px", class: "logo-image"), root_path, data: {"turbolinks" => false}, class: "headerLogo" %>
     <div class="search_form">
-      <%= search_form_for @q, url: projects_path do |f| %>
+      <%= search_form_for q, url: projects_path do |f| %>
+        <%= f.search_field :title_cont, class: "searchBox", :placeholder => "キーワード" %>
+        <%= f.submit "検索", class: "searchButton" %>
+      <% end %>
+    </div>
+    <div class="mobile_search_form">
+      <%= search_form_for q, url: projects_path do |f| %>
         <%= f.search_field :title_cont, class: "searchBox", :placeholder => "キーワード" %>
         <%= f.submit "検索", class: "searchButton" %>
       <% end %>
@@ -18,7 +24,7 @@
           <% if current_user.image? %>
             <%= image_tag current_user.image.url, class: "user-icon" %>
           <% else %>
-            <%= image_tag "/assets/default.jpg", :size => '60x60', class: "user-icon" %>
+            <%= image_tag "default.jpg", :size => '60x60', class: "user-icon" %>
           <% end %>
         </div>
     </div>
@@ -38,6 +44,11 @@
           <%= link_to 'ログイン', new_user_session_path, class: "log-in" %>
           <%= link_to '登録する', new_user_registration_path, class: "registration" %>
         </div>
+        <div class="mobile-nav-item">
+          <%= link_to 'ゲストログイン', users_guest_sign_in_path, class: "log-in", method: :post %>
+          <%= link_to 'ログイン', new_user_session_path, class: "log-in" %>
+          <%= link_to '登録する', new_user_registration_path, class: "registration" %>
+        </div> 
       <% end %>  
   </div>
 </header>
