@@ -18,7 +18,7 @@
       <p class="projectNewTitle"><%= f.label :ユーザー名 %></p>
       <p><%= f.text_field :name, autofocus: true, autocomplete: "name", class: "textForm" %></p>
       <p class="projectNewTitle"><%= f.label :自己紹介 %></p>
-      <p><%= f.text_area :profile, autofocus: true, class: "projectIntroductionForm" %></p>
+      <p><%= f.text_area :profile, autofocus: true, class: "IntroductionForm" %></p>
       <div class="profileEditSubmit"><%= f.submit "更新", class: "returnSubmitButton" %></div>
       <div><%= link_to "メールアドレス・パスワードの編集はこちら", edit_user_registration_path %></div>
     </div>

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_07_27_040859) do
 
-  create_table "action_text_rich_texts", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "action_text_rich_texts", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.text "body", size: :long
     t.string "record_type", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2022_07_27_040859) do
     t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
   end
 
-  create_table "active_storage_attachments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_attachments", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
     t.bigint "record_id", null: false
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2022_07_27_040859) do
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
   end
 
-  create_table "active_storage_blobs", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_blobs", charset: "utf8mb4", force: :cascade do |t|
     t.string "key", null: false
     t.string "filename", null: false
     t.string "content_type"
@@ -44,13 +44,13 @@ ActiveRecord::Schema.define(version: 2022_07_27_040859) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
-  create_table "active_storage_variant_records", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "active_storage_variant_records", charset: "utf8mb4", force: :cascade do |t|
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
-  create_table "comments", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "comments", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id"
     t.integer "project_id"
     t.string "message"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 2022_07_27_040859) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "projects", charset: "utf8mb4", force: :cascade do |t|
     t.string "title"
     t.integer "target_amount"
     t.date "start_date"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2022_07_27_040859) do
     t.string "content"
   end
 
-  create_table "purchases", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "purchases", charset: "utf8mb4", force: :cascade do |t|
     t.integer "user_id"
     t.integer "project_id"
     t.datetime "created_at", precision: 6, null: false
@@ -93,7 +93,7 @@ ActiveRecord::Schema.define(version: 2022_07_27_040859) do
     t.text "return_introduction"
   end
 
-  create_table "returns", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "returns", charset: "utf8mb4", force: :cascade do |t|
     t.string "return_image"
     t.integer "return_price"
     t.string "return_name"
@@ -106,7 +106,7 @@ ActiveRecord::Schema.define(version: 2022_07_27_040859) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+  create_table "users", charset: "utf8mb4", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"

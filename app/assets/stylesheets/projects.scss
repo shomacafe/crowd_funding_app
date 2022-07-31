@@ -302,8 +302,8 @@
   }
   .form-submit{
     color: white;
-    background-color: #4a90e2;
-    border-color: #007bff;
+    background: #DEB887;
+    border: 2px solid #D2B48C;
     border-radius: 5px;
     width: 90%;
     height: 40px;
@@ -803,8 +803,8 @@
   }
   .form-submit{
     color: white;
-    background-color: #4a90e2;
-    border-color: #007bff;
+    background: #DEB887;
+    border: 2px solid #D2B48C;
     border-radius: 5px;
     width: 100%;
     height: 40px;
@@ -943,6 +943,12 @@
   }
   .projectIntroductionForm{
     width: 100%;
+    border-radius: 3px;
+    border: 1px solid #d3d3d3;
+  }
+  .IntroductionForm{
+    width: 100%;
+    height: 80px;
     border-radius: 3px;
     border: 1px solid #d3d3d3;
   }
