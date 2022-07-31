@@ -5,7 +5,7 @@
       <p class="projectNewTitle"><%= f.label :return_price, "価格" %><span class="must">必須</span></p>
       <p><%= f.number_field :return_price, class: "textForm" %></p>
       <p class="projectNewTitle"><%= f.label :return_introduction, "紹介文" %><span class="must">必須</span></p>
-      <p><%= f.text_area :return_introduction, class: "projectIntroductionForm"  %></p>
+      <p><%= f.text_area :return_introduction, class: "IntroductionForm"  %></p>
       <p class="projectNewTitle"><%= f.label :return_image, "画像" %><span class="must">必須</span></strong>
       <p class="returnImageForm"><%= f.file_field :return_image %></p>
       <div class="returnDelete"><%= link_to_remove_association "リターンを削除する", f, class: "returnDeleteButton" %></div>
