@@ -1,4 +1,4 @@
-　　　　　　<img src="https://user-images.githubusercontent.com/97627380/182097061-620388e3-5a3b-4fb5-ad75-7796b922d759.png" width="700"> 
+　　　<img src="https://user-images.githubusercontent.com/97627380/182097061-620388e3-5a3b-4fb5-ad75-7796b922d759.png" width="700"> 
 
 # クラウドファンディングシミュレーションアプリ「Shoma Cafe」
 
