@@ -141,6 +141,19 @@
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
   }
+  .owner-profile{
+    display: flex;
+    align-items: center;
+  }
+  .profile-user-icon{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 45px;
+    height: 45px;
+  }
+  .profile-user-name{
+    margin-left: 10px;
+  }
   .catchCopyTitle{
     font-size: 20px;
     margin-top: 15px;
@@ -432,6 +445,13 @@
   }
   .projectIntroductionForm{
     width: 100%;
+    height: auto;
+  }
+  .IntroductionForm{
+    width: 100%;
+    height: 80px;
+    border-radius: 3px;
+    border: 1px solid #d3d3d3;
   }
   .richTextForm{
     margin-right: 20px;
@@ -698,6 +718,19 @@
     border-top: 10px solid white;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
+  }
+  .owner-profile{
+    display: flex;
+    align-items: center;
+  }
+  .profile-user-icon{
+    border-radius: 50%;
+    object-fit: cover;
+    width: 60px;
+    height: 60px;
+  }
+  .profile-user-name{
+    margin-left: 10px;
   }
   .catchCopyTitle{
     font-size: 20px;
