@@ -30,12 +30,12 @@
     </div>
         <div id="open" style="display:none;clear:both;">
           <ul class="dropdown-menu">
-            <li><%= link_to "プロジェクトをはじめる", projects_new_path %></li>
-            <li><%= link_to "作成したプロジェクト", posts_projects_path %></li>
-            <li><%= link_to "応援したプロジェクト", purchases_path %></li>
-            <li><%= link_to "プロフィール編集", profile_users_path %></li>
-            <li><%= link_to "メールアドレス・パスワード編集", edit_user_registration_path %></li>
-            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "プロジェクトをはじめる", projects_new_path, class: "menu-text" %></li>
+            <li><%= link_to "作成したプロジェクト", posts_projects_path, class: "menu-text" %></li>
+            <li><%= link_to "応援したプロジェクト", purchases_path, class: "menu-text" %></li>
+            <li><%= link_to "プロフィール編集", profile_users_path, class: "menu-text" %></li>
+            <li><%= link_to "メールアドレス・パスワード編集", edit_user_registration_path, class: "menu-text" %></li>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "menu-text" %></li>
           </ul>
         </div>
       <% else %>

@@ -5,13 +5,11 @@
     <div class="balloonTriangle"></div>
   </div>
   <div class="owner-profile">
-    <div>
       <% if project.user.image? %>
-        <%= image_tag @project.user.image.url, :size => '60x60', class: "user-icon" %>
+        <%= image_tag @project.user.image.url, :size => '60x60', class: "profile-user-icon" %>
       <% else %>
-        <%= image_tag "default.jpg", :size => '60x60', class: "user-icon" %>
+        <%= image_tag "default.jpg", :size => '60x60', class: "profile-user-icon" %>
       <% end %>
-      <%= project.user.name %>
-    </div>
+      <div class="profile-user-name"><%= project.user.name %></div>
   </div>
 </div>

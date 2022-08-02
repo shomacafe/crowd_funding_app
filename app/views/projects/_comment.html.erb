@@ -15,9 +15,9 @@
         <div class="comment-content">
           <p>
             <% if comment.user.image? %>
-              <%= image_tag comment.user.image.url, :size => '60x60', class: "user-icon" %>
+              <%= image_tag comment.user.image.url, :size => '60x60', class: "profile-user-icon" %>
             <% else %>
-              <%= image_tag "default.jpg", :size => '60x60', class: "user-icon" %>
+              <%= image_tag "default.jpg", :size => '60x60', class: "profile-user-icon" %>
             <% end %>
           </p>
           <div class="comment-content-right">
