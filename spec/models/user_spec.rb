@@ -15,20 +15,20 @@ RSpec.describe User, type: :model do
   it "メールアドレスがなければ無効な状態であること" do
     user = build(:user, email: nil)
     user.valid?
-    expect(user.errors[:email]).to include("を入力してください")
+    expect(user.errors[:email]).to include("が入力されていません。")
   end
 
   it "メールアドレスが重複していれば無効な状態であること" do
     user1 = create(:user, email: "tester@example.com")
     user2 = FactoryBot.build(:user, email: "tester@example.com")
     user2.valid?
-    expect(user2.errors[:email]).to include("はすでに存在します")
+    expect(user2.errors[:email]).to include("は既に使用されています。")
   end
 
   it "パスワードがなければ無効な状態であること" do
     user = build(:user, password: nil)
     user.valid?
-    expect(user.errors[:password]).to include("を入力してください")
+    expect(user.errors[:password]).to include("が入力されていません。")
   end
 
   it "プロフィールが200文字以内であれば有効であること" do
